@@ -13,7 +13,19 @@ module.exports = {
         test: /\.js$/,
         use: [
           {
-            loader: resolve('src/replace.js')
+            loader: resolve('src/replace.js'),
+            options: {
+              rules: [
+                {
+                  search: 'webpack',
+                  replace: 'replace with string'
+                },
+                {
+                  search: /(.+)(loader)(.+)/,
+                  replace: (match, $1, $2, $3) => `${$1}replace with regex${$3}`
+                }
+              ]
+            }
           }
         ]
       }
