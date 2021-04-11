@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": ["rules"],
+  "properties": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["search", "replace"],
+        "additionalProperties": false,
+        "properties": {
+          "search": {
+            "anyOf": [{ "type": "string" }, { "instanceof": "RegExp" }]
+          },
+          "replace": {
+            "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
