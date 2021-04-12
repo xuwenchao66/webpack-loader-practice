@@ -4,7 +4,7 @@ const resolve = (...args) => path.resolve(process.cwd(), ...args)
 module.exports = {
   entry: resolve('test', 'file-for-test.js'),
   output: {
-    filename: 'test.js',
+    filename: 'main.js',
     path: resolve('dist')
   },
   module: {
